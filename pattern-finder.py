@@ -12,16 +12,9 @@ headers = {'User-Agent': ua.chrome}
 
 url_list = []
 
-def get_bool(prompt):
-    while True:
-        try:
-           return {"yes":True,"no":False}[input(prompt).lower()]
-        except KeyError:
-           print ("Invalid input please enter True or False!")
+has_file = input("Do you have a file to parse? (Please enter yes or no) ")
 
-print (get_bool("Do you have a file to parse? (Please enter yes or no) "))
-
-if get_bool == True:
+if has_file.lower() == 'yes':
 
     with open(input("Please enter the name of the file containing your links\n")) as file:
         for line in file:
