@@ -60,7 +60,7 @@ log = open(the_file, 'a')
 for i in url_list:
     content = requests.get(i, headers=headers).text
     if the_pattern in content:
-        search_pattern = print(the_pattern + " found at " + i, file = log)
+        print(the_pattern + " found at " + i, file = log)
     else:
     	print("Status: Not found")
 
