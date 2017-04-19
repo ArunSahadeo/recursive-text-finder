@@ -42,7 +42,7 @@ else:
         url_list.append(a['href'])
 
 print("\nThe total number of processed links is: ", end="")
-print(url_list, '\n')
+print(len(url_list), '\n')
 
 the_pattern = input("What's the search pattern?\n")
 the_file = input("Which file should the results be written to?\n")
