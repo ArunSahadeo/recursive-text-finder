@@ -16,14 +16,14 @@ has_file = input("Do you have a file to parse? (Please enter yes or no) ")
 
 if has_file.lower() == 'yes':
 
-    with open(input("Please enter the name of the file containing your links\n")) as file:
+    with open(input("Please enter the name of the file containing your links: ")) as file:
         for line in file:
             line = line.strip()
         url_list.append(line)
 
 else:
 
-    website_name = input("Please enter the website name ")
+    website_name = input("Please enter the website name: ")
     website = requests.get(website_name, headers=headers)
     html = website.text
     soup = BeautifulSoup(html, "html.parser")
@@ -44,8 +44,8 @@ else:
 print("\nThe total number of processed links is: ", end="")
 print(len(url_list), '\n')
 
-the_pattern = input("What's the search pattern?\n")
-the_file = input("Which file should the results be written to?\n")
+the_pattern = input("What's the search pattern?: ")
+the_file = input("Which file should the results be written to?: ")
 print("\n")
 
 log = open(the_file, 'a')
