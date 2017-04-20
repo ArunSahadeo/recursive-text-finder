@@ -21,7 +21,7 @@ if has_file.lower() == 'yes' or has_file.lower() == 'y':
             line = line.strip()
         url_list.append(line)
 
-else:
+elif has_file.lower() == 'no' or has_file.lower() == 'n':
 
     website_name = input("Please enter the website name: ")
     website = requests.get(website_name, headers=headers)
@@ -42,6 +42,10 @@ else:
         elif "javascript(void)" in a['href']:
             continue;
         url_list.append(a['href'])
+
+else:
+    print("Wrong value")
+    exit(1)
 
 print("\nThe total number of processed links is: ", end="")
 print(len(url_list), '\n')
