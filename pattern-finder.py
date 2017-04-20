@@ -39,6 +39,8 @@ else:
             continue;
         elif "twitter" in a['href'] or "mailto:" in a['href']:
             continue;
+        elif "javascript(void)" in a['href']:
+            continue:
         url_list.append(a['href'])
 
 print("\nThe total number of processed links is: ", end="")
