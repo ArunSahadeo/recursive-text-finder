@@ -24,7 +24,7 @@ pip3 install -r requirements.txt
 Or:
 
 ```python
-pip install -r requirements.txt
+pip install --user -r requirements.txt
 ```
 
 Now you need to run the following:
