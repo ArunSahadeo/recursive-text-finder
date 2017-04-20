@@ -14,7 +14,7 @@ url_list = []
 
 has_file = input("Do you have a file to parse? (Please enter yes or no) ")
 
-if has_file.lower() == 'yes':
+if has_file.lower() == 'yes' or has_file.lower() == 'y':
 
     with open(input("Please enter the name of the file containing your links: ")) as file:
         for line in file:
