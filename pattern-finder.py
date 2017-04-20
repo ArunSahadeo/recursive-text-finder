@@ -37,7 +37,7 @@ else:
             continue;
         elif "youtube" in a['href'] or "tel:" in a['href']:
             continue;
-        elif "twitter" in a['href']:
+        elif "twitter" in a['href'] or "mailto:" in a['href']:
             continue;
         url_list.append(a['href'])
 
