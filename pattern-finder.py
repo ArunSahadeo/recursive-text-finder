@@ -18,8 +18,8 @@ if has_file.lower() == 'yes' or has_file.lower() == 'y':
 
     with open(input("Please enter the name of the file containing your links: ")) as file:
         for line in file:
-            line = line.strip()
-        url_list.append(line)
+            line = line.rstrip('\n')
+            url_list.append(line)
 
 elif has_file.lower() == 'no' or has_file.lower() == 'n':
 
@@ -48,7 +48,7 @@ else:
     exit(1)
 
 print("\nThe total number of processed links is: ", end="")
-print(len(url_list), '\n')
+print(len(url_list))
 
 the_pattern = input("What's the search pattern?: ")
 the_file = input("Which file should the results be written to?: ")
@@ -61,6 +61,6 @@ for i in url_list:
     if the_pattern.lower() in content.lower():
         print(the_pattern + " found at " + i, file = log)
     else:
-    	print("Status: Not found")
+    	print("Status: Not found ")
 
 log.close()
