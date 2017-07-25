@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import requests
+import re
 try:
 	from BeautifulSoup import BeautifulSoup
 except ImportError:
@@ -33,6 +34,8 @@ elif has_file.lower() == 'no' or has_file.lower() == 'n':
         try:
 
             if a['href'].startswith( '/' ) or a['href'].startswith( '#' ):
+                continue;
+            elif re.search('(?<=\w).www\w+', a['href']):
                 continue;
             elif a['href'] == '':
                 continue;
