@@ -8,7 +8,7 @@ except ImportError:
 from fake_useragent import UserAgent
 ua = UserAgent()
 
-headers = {'User-Agent': ua.chrome}
+headers = {'User-Agent': ua.google}
 
 url_list = []
 
@@ -29,19 +29,26 @@ elif has_file.lower() == 'no' or has_file.lower() == 'n':
     soup = BeautifulSoup(html, "html.parser")
 	
     for a in soup.find_all('a'):
-        if a['href'].startswith( '/' ) or a['href'].startswith( '#' ):
-            continue;
-        elif a['href'] == '':
-            continue;
-        elif "linkedin" in a['href'] or "google" in a['href']:
-            continue;
-        elif "youtube" in a['href'] or "tel:" in a['href']:
-            continue;
-        elif "twitter" in a['href'] or "mailto:" in a['href']:
-            continue;
-        elif "javascript(void)" in a['href']:
-            continue;
-        url_list.append(a['href'])
+        
+        try:
+
+            if a['href'].startswith( '/' ) or a['href'].startswith( '#' ):
+                continue;
+            elif a['href'] == '':
+                continue;
+            elif "linkedin" in a['href'] or "google" in a['href']:
+                continue;
+            elif "youtube" in a['href'] or "tel:" in a['href']:
+                continue;
+            elif "twitter" in a['href'] or "mailto:" in a['href']:
+                continue;
+            elif "javascript(void)" in a['href']:
+                continue;
+            
+            url_list.append(a['href'])
+
+        except KeyError:
+            pass
 
 else:
     print("Wrong value")
