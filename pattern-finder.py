@@ -24,7 +24,7 @@ if has_file.lower() == 'yes' or has_file.lower() == 'y':
 
 elif has_file.lower() == 'no' or has_file.lower() == 'n':
 
-    website_name = input("Please enter the website name: ")
+    website_name = input("Please enter the website name (specify protocol): ")
     website = requests.get(website_name, headers=headers)
     html = website.text
     soup = BeautifulSoup(html, "html.parser")
