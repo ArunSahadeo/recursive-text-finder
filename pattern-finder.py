@@ -47,6 +47,8 @@ elif has_file.lower() == 'no' or has_file.lower() == 'n':
                 continue;
             elif "javascript(void)" in a['href']:
                 continue;
+            elif re.search(r"^\?(.*)", a['href']):
+                continue;
             
             url_list.append(a['href'])
 
