@@ -49,6 +49,8 @@ elif has_file.lower() == 'no' or has_file.lower() == 'n':
                 continue;
             elif re.search(r"^\?(.*)", a['href']):
                 continue;
+            elif a['href'] == 'http://#':    
+                continue;
             
             url_list.append(a['href'])
 
