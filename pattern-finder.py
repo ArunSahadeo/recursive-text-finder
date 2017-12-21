@@ -71,8 +71,9 @@ print("\n")
 log = open(the_file, 'a')
 
 for i in url_list:
-    content = requests.get(i, headers=headers).text
-    if the_pattern.lower() in content.lower():
+    content = requests.get(i, headers=headers)
+    print("Status code: " + str(content.status_code))
+    if the_pattern.lower() in content.text.lower():
         print(the_pattern + " found at " + i, file = log)
     else:
     	print("Status: Not found ")
