@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-import requests
-import re
+import requests, re
+from time import sleep
 try:
 	from BeautifulSoup import BeautifulSoup
 except ImportError:
@@ -72,6 +72,7 @@ log = open(the_file, 'a')
 
 for i in url_list:
     content = requests.get(i, headers=headers)
+    sleep(0.5)
     print("Status code: " + str(content.status_code))
     if the_pattern.lower() in content.text.lower():
         print(the_pattern + " found at " + i, file = log)
