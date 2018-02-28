@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import requests, re
 from time import sleep
@@ -9,7 +9,7 @@ except ImportError:
 from fake_useragent import UserAgent
 ua = UserAgent()
 
-headers = {'User-Agent': ua.google}
+headers = {'User-Agent': ua.random}
 
 url_list = []
 
