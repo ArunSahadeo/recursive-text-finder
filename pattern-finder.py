@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import requests, re
+import logging, requests, re
 from time import sleep
 try:
 	from BeautifulSoup import BeautifulSoup
@@ -71,12 +71,19 @@ print("\n")
 log = open(the_file, 'a')
 
 for i in url_list:
-    content = requests.get(i, headers=headers)
+    try:
+        content = requests.get(i, headers=headers)
+    except Exception as e:
+        logging.exception("message")
+        print("The url is " + i)
+        continue
+    else:
+        print("The url is " + i)
     sleep(0.5)
     print("Status code: " + str(content.status_code))
     if the_pattern.lower() in content.text.lower():
         print(the_pattern + " found at " + i, file = log)
     else:
-    	print("Status: Not found ")
+    	print("Status: Not found")
 
 log.close()
