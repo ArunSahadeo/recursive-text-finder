@@ -49,9 +49,11 @@ elif has_file.lower() == 'no' or has_file.lower() == 'n':
                 continue;
             elif re.search(r"^\?(.*)", a['href']):
                 continue;
-            elif a['href'] == 'http://#':    
+            elif a['href'] == 'http://#':
                 continue;
-            
+            elif website_name not in a['href']:
+                continue;
+
             url_list.append(a['href'])
 
         except KeyError:
